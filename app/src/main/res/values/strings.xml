@@ -15,4 +15,21 @@
     <string name="sym1">*</string>
     <string name="sym2">-</string>
     <string name="sym3">+</string>
+    <string name="EnterName">Enter Name</string>
+    <string name="EnterAge">Enter Age</string>
+    <string name="EnterEmail">Enter Email</string>
+    <string name="EnterPhone">Enter Phone</string>
+    <string name="EnterPassword">Enter Password</string>
+    <string name="EnterConfirmPassword">Enter Confirm Password</string>
+    <string name="EnterAddress">Enter Address</string>
+    <string name="EnterCity">Enter City</string>
+    <string name="EnterState">Enter State</string>
+    <string name="EnterZipCode">Enter Zip Code</string>
+    <string name="EnterCountry">Enter Country</string>
+    <string name="EnterBiography">Enter Biography</string>
+    <string name="EnterTime">Enter Time</string>
+    <string name="EnterDate">Enter Date</string>
+    <string name="EnterNumber">Enter Number</string>
+    <string name="EnterSignedNumber">Enter Signed Number</string>
+<string name="EnterDecimalNumber">Enter Decimal Number</string>
 </resources>

@@ -103,12 +103,10 @@ public class MainActivity extends AppCompatActivity {
                             formulaBar.setText(null);
                             formula = new StringBuilder();
                         } else {
-
                         }
                     }
                 }
             });
-
         }
     }
 }
