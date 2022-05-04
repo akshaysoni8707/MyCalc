@@ -16,10 +16,15 @@
     <string name="sym2">-</string>
     <string name="sym3">+</string>
     <string name="EnterName">Enter Name</string>
+    <string name="UserNameRequired">User Name Required</string>
+    <string name="UserNameValid">User Name Valid</string>
     <string name="EnterAge">Enter Age</string>
     <string name="EnterEmail">Enter Email</string>
     <string name="EnterPhone">Enter Phone</string>
     <string name="EnterPassword">Enter Password</string>
+    <string name="PasswordRequired">Password Required</string>
+    <string name="PasswordValid">Password Valid</string>
+    <string name="PasswordInvalid">Password Invalid</string>
     <string name="EnterConfirmPassword">Enter Confirm Password</string>
     <string name="EnterAddress">Enter Address</string>
     <string name="EnterCity">Enter City</string>
@@ -32,4 +37,5 @@
     <string name="EnterNumber">Enter Number</string>
     <string name="EnterSignedNumber">Enter Signed Number</string>
 <string name="EnterDecimalNumber">Enter Decimal Number</string>
+
 </resources>
