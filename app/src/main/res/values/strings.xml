@@ -36,6 +36,6 @@
     <string name="EnterDate">Enter Date</string>
     <string name="EnterNumber">Enter Number</string>
     <string name="EnterSignedNumber">Enter Signed Number</string>
-<string name="EnterDecimalNumber">Enter Decimal Number</string>
+    <string name="EnterDecimalNumber">Enter Decimal Number</string>
 
 </resources>
