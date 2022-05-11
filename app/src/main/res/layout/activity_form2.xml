@@ -117,6 +117,7 @@
 
         <ToggleButton
             android:id="@+id/toggleButton2"
+            style="@android:style/Widget.Button.Toggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
