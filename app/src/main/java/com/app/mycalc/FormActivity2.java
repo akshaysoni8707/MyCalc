@@ -27,10 +27,36 @@ public class FormActivity2 extends AppCompatActivity {
     Switch switchButton;
     ImageButton imageButton;
 
+    View.OnClickListener onClickListener1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(FormActivity2.this, "Hello Java", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    View.OnClickListener onClickListener2 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(FormActivity2.this, "Hello Kotlin", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    View.OnClickListener toggleListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (toggleButton.isChecked()) {
+                imageButton.setOnClickListener(onClickListener1);
+            } else {
+                imageButton.setOnClickListener(onClickListener2);
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form2);
+
 
         genderRadioGroup = findViewById(R.id.genderRadioGroup);
         maleRadioButton = findViewById(R.id.maleRadioButton);
@@ -84,6 +110,25 @@ public class FormActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 upiChip.setVisibility(View.GONE);
+                switchButton.setChecked(false);
+            }
+        });
+
+        //toggle button listener
+        toggleButton.setOnClickListener(toggleListener);
+        imageButton.setOnClickListener(onClickListener2);
+
+
+        //switch button listener
+        switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    upiChip.setVisibility(View.VISIBLE);
+                }
+                else{
+                    upiChip.setVisibility(View.GONE);
+                }
             }
         });
     }
