@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ public class FormActivity extends AppCompatActivity {
 
     EditText password;
     TextView passwordError;
+
+    CheckedTextView checkedTextView;
 
     AutoCompleteTextView selectState;
     String[] states = {
@@ -128,6 +131,7 @@ public class FormActivity extends AppCompatActivity {
         passwordError = findViewById(R.id.passwordError);
         selectState = findViewById(R.id.selectState);
         selectCities = findViewById(R.id.selectCities);
+        checkedTextView = findViewById(R.id.checkedTextView);
 
         TextWatcher userNameTextWatcher = new TextWatcher() {
             @Override
@@ -210,6 +214,21 @@ public class FormActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 Toast.makeText(FormActivity.this, "Please select a city", Toast.LENGTH_SHORT).show();
+            }
+        });
+        
+        checkedTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(checkedTextView.isChecked()) {
+                    checkedTextView.setChecked(false);
+                    checkedTextView.setText("This is alternative check = true");
+                    checkedTextView.setCheckMarkDrawable(android.R.drawable.btn_star_big_on);
+                }else{
+                    checkedTextView.setChecked(true);
+                    checkedTextView.setText("This is alternative check = false");
+                    checkedTextView.setCheckMarkDrawable(android.R.drawable.btn_star_big_off);
+                }
             }
         });
     }
