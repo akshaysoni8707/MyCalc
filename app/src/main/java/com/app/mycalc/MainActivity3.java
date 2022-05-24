@@ -8,6 +8,7 @@ import android.net.MailTo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,13 +35,13 @@ public class MainActivity3 extends AppCompatActivity {
 //        startActivity(intent2);
 
         //send sms pending intent
-                PendingIntent sent = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent("sent"), 0);
-                PendingIntent deliver = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent("delivered"), 0);
-
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage("+919586309151", null, "testsms", sent, deliver);
-
-                Toast.makeText(getApplicationContext(), "Sent Message", Toast.LENGTH_SHORT).show();
+//                PendingIntent sent = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent("sent"), 0);
+//                PendingIntent deliver = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent("delivered"), 0);
+//
+//                SmsManager smsManager = SmsManager.getDefault();
+//                smsManager.sendTextMessage("+919586309151", null, "testsms", sent, deliver);
+//
+//                Toast.makeText(getApplicationContext(), "Sent Message", Toast.LENGTH_SHORT).show();
 
         //send sms
 //        Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -51,15 +52,24 @@ public class MainActivity3 extends AppCompatActivity {
 
 
         //email intent
-//        Intent email = new Intent(Intent.ACTION_SEND);
-//        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"jay.07.dedaniya@gmail.com"});
-//        email.putExtra(Intent.EXTRA_SUBJECT, "This is subject Android Intent");
-//        email.putExtra(Intent.EXTRA_TEXT, "No message will be delivered");
-//
-//        //need this to prompts email client only
-//        email.setType("message/rfc822");
-//
-////        startActivity(Intent.createChooser(email, "Choose an Email client :"));
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"jay.07.dedaniya@gmail.com"});
+        email.putExtra(Intent.EXTRA_SUBJECT, "This is subject Android Intent");
+        email.putExtra(Intent.EXTRA_TEXT, "No message will be delivered");
+
+        //need this to prompts email client only
+        email.setType("message/rfc822");
+        //need this to prompts email client only
+        email.setType("message/rfc822");
+        if (email.resolveActivity(getPackageManager()) != null) {
+            email.setPackage("com.google.android.gm");
+            startActivity(email);
+        } else {
+            //no email client installed logging
+            Log.d("Email", "No email client installed");
+        }
+
+        startActivity(Intent.createChooser(email, "Choose an Email client :"));
 //        startActivity(Intent.createChooser(email, "Choose an Email client :", null));
     }
 }
