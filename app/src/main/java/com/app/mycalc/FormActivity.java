@@ -16,6 +16,9 @@ import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
 import java.util.regex.Pattern;
 
 public class FormActivity extends AppCompatActivity {
@@ -26,6 +29,9 @@ public class FormActivity extends AppCompatActivity {
     TextView passwordError;
 
     CheckedTextView checkedTextView;
+
+    EditText dateField;
+    MaterialDatePicker materialDatePicker;
 
     AutoCompleteTextView selectState;
     String[] states = {
@@ -132,6 +138,7 @@ public class FormActivity extends AppCompatActivity {
         selectState = findViewById(R.id.selectState);
         selectCities = findViewById(R.id.selectCities);
         checkedTextView = findViewById(R.id.checkedTextView);
+        dateField = findViewById(R.id.Date);
 
         TextWatcher userNameTextWatcher = new TextWatcher() {
             @Override
@@ -216,19 +223,37 @@ public class FormActivity extends AppCompatActivity {
                 Toast.makeText(FormActivity.this, "Please select a city", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
         checkedTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkedTextView.isChecked()) {
+                if (checkedTextView.isChecked()) {
                     checkedTextView.setChecked(false);
                     checkedTextView.setText("This is alternative check = true");
                     checkedTextView.setCheckMarkDrawable(android.R.drawable.btn_star_big_on);
-                }else{
+                } else {
                     checkedTextView.setChecked(true);
                     checkedTextView.setText("This is alternative check = false");
                     checkedTextView.setCheckMarkDrawable(android.R.drawable.btn_star_big_off);
                 }
+            }
+        });
+
+        dateField.setShowSoftInputOnFocus(false);
+        dateField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                materialDatePicker =
+                        MaterialDatePicker.Builder.datePicker()
+                                .setTitleText("Select date")
+                                .build();
+                materialDatePicker.show(getSupportFragmentManager(), "DATE_PICKER");
+                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+                    @Override
+                    public void onPositiveButtonClick(Object selection) {
+                            dateField.setText(materialDatePicker.getHeaderText());
+                    }
+                });
             }
         });
     }
