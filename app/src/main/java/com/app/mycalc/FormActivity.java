@@ -18,7 +18,10 @@ import android.widget.Toast;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
 
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 public class FormActivity extends AppCompatActivity {
@@ -32,6 +35,9 @@ public class FormActivity extends AppCompatActivity {
 
     EditText dateField;
     MaterialDatePicker materialDatePicker;
+
+    EditText timeField;
+    MaterialTimePicker materialTimePicker;
 
     AutoCompleteTextView selectState;
     String[] states = {
@@ -139,6 +145,7 @@ public class FormActivity extends AppCompatActivity {
         selectCities = findViewById(R.id.selectCities);
         checkedTextView = findViewById(R.id.checkedTextView);
         dateField = findViewById(R.id.Date);
+        timeField = findViewById(R.id.Time);
 
         TextWatcher userNameTextWatcher = new TextWatcher() {
             @Override
@@ -253,6 +260,25 @@ public class FormActivity extends AppCompatActivity {
                     public void onPositiveButtonClick(Object selection) {
                             dateField.setText(materialDatePicker.getHeaderText());
                     }
+                });
+            }
+        });
+
+        timeField.setShowSoftInputOnFocus(false);
+        timeField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                materialTimePicker =
+                        new MaterialTimePicker.Builder()
+                                .setTimeFormat(TimeFormat.CLOCK_24H)
+                                .setHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
+                                .setMinute(Calendar.getInstance().get(Calendar.MINUTE))
+                                .setTitleText("Select time")
+                                .build();
+                materialTimePicker.show(getSupportFragmentManager(), "TIME_PICKER");
+                materialTimePicker.addOnPositiveButtonClickListener(dialog->{
+
+                        timeField.setText("" + materialTimePicker.getHour() + ":" + materialTimePicker.getMinute());
                 });
             }
         });
