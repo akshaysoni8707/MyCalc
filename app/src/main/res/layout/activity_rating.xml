@@ -9,6 +9,7 @@
 
     <RatingBar
         android:id="@+id/ratingBar"
+        style="@style/CustomRatingBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:max="5"
