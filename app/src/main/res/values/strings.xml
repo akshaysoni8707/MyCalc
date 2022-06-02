@@ -37,5 +37,25 @@
     <string name="EnterNumber">Enter Number</string>
     <string name="EnterSignedNumber">Enter Signed Number</string>
     <string name="EnterDecimalNumber">Enter Decimal Number</string>
+    <string-array name="Languages">
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>C++</item>
+        <item>C</item>
+        <item>C#</item>
+        <item>PHP</item>
+        <item>Python</item>
+        <item>Ruby</item>
+        <item>Swift</item>
+        <item>JavaScript</item>
+        <item>Go</item>
+        <item>Scala</item>
+        <item>Spark</item>
+        <item>Hadoop</item>
+        <item>Hive</item>
+        <item>Solidity</item>
+        <item>R</item>
+        <item>Matlab</item>
 
+    </string-array>
 </resources>
