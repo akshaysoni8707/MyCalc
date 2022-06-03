@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalc">
         <activity
+            android:name=".ViewUser"
+            android:exported="false" />
+        <activity
             android:name=".ListActivity"
             android:exported="true">
             <intent-filter>
