@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalc">
         <activity
-            android:name=".ViewUser"
+            android:name=".EmployeeView"
             android:exported="false" />
         <activity
-            android:name=".ListActivity"
+            android:name=".EmployeeListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,12 +26,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ViewUser"
+            android:exported="false" />
+        <activity
+            android:name=".ListActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".CalendarActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
         <activity
