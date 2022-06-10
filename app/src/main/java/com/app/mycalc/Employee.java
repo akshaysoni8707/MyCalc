@@ -46,6 +46,11 @@ public class Employee implements Serializable {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return name + " " + email + " " + phone;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
