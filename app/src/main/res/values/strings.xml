@@ -58,4 +58,14 @@
         <item>Matlab</item>
 
     </string-array>
+
+    <string name="planHorizontal">Jio Plan</string>
+    <string name="planHorizontal2">Jio Plan Offer</string>
+    <string name="popularMore">+1 More</string>
+    <string name="planValidity">Validity</string>
+    <string name="planData">Data</string>
+    <string name="planGetNow">Get Now</string>
+    <string name="planOthers">Others Plan</string>
+    <string name="planOthersMore">View Mores</string>
+
 </resources>
