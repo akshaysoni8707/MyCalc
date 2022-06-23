@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.mycalc.R;
@@ -24,8 +25,9 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
-        TextView chatText = view.findViewById(R.id.chatText);
-        chatText.setText("Chat Fragment");
+        ListView listView = view.findViewById(R.id.whatsapp_list);
+        WhatsappAdapter whatsappAdapter = new WhatsappAdapter(context,0,new WhatsappUserListCreator().getWhatsappChatList());
+        listView.setAdapter(whatsappAdapter);
         return view;
     }
 }
