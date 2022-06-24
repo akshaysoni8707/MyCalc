@@ -15,9 +15,11 @@ import java.util.List;
 
 public class WhatsappAdapter extends ArrayAdapter<WhatsappUser> {
     Context context;
-    public WhatsappAdapter(@NonNull Context context, int resource, @NonNull List<WhatsappUser> objects) {
+    Enum<MyTabs> tab;
+    public WhatsappAdapter(@NonNull Context context, int resource, @NonNull List<WhatsappUser> objects, Enum<MyTabs> tab) {
         super(context, resource, objects);
         this.context = context;
+        this.tab = tab;
     }
 
     @NonNull
@@ -30,7 +32,7 @@ public class WhatsappAdapter extends ArrayAdapter<WhatsappUser> {
         }
 
         WhatsappUser whatsappUser = getItem(position);
-        WhatsappDataSetter dataSetter = new WhatsappDataSetter(currentView,whatsappUser);
+        WhatsappDataSetter dataSetter = new WhatsappDataSetter(currentView,whatsappUser,tab);
         currentView = dataSetter.getCurrentView();
 
         return currentView;

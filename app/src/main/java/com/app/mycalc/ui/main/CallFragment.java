@@ -27,7 +27,7 @@ public class CallFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
         ListView listView = view.findViewById(R.id.whatsapp_list);
-        WhatsappAdapter whatsappAdapter = new WhatsappAdapter(context,0,new WhatsappUserListCreator().getWhatsappChatList());
+        WhatsappAdapter whatsappAdapter = new WhatsappAdapter(context,0,new WhatsappUserListCreator().getWhatsappChatList(),MyTabs.CALL);
         listView.setAdapter(whatsappAdapter);
         return view;
     }
